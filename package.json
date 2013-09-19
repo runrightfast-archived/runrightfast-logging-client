@@ -18,7 +18,9 @@
 	"license":"Apache v2",
 	"dependencies":{
 		"lodash":"1.3.1",
-		"hoek":"1.0.0"		
+		"hoek":"1.0.0",
+		"runrightfast-logging-service":"git://github.com/runrightfast/runrightfast-logging-service.git#0.0.6",
+		"rest":"0.9.4"		
 	},
 	"devDependencies":{
 		"grunt":"~0.4.1",
@@ -29,6 +31,10 @@
 		"sinon-chai":"~2.4.0",
 		"grunt-mocha-cov":"~0.0.7",
 		"grunt-contrib-clean":"~0.5.0",
-		"runrightfast-logging-server":"git://github.com/runrightfast/runrightfast-logging-server.git#0.0.3"
+		"hapi":"1.11.1",
+		"runrightfast-logging-service-hapi-plugin":"git://github.com/runrightfast/runrightfast-logging-service-hapi-plugin.git#0.0.4",
+		"lout":"0.5.0",		
+		"handlebars":"1.0.12",
+		"furball":"0.3.3"
 	}
 }
