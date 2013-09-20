@@ -102,7 +102,7 @@ describe('LoggingClient', function() {
 			data : 'test : log a valid event to an invalid URL'
 		};
 
-		loggingClient.log(event);		
+		loggingClient.log(event);
 		expect(loggingClient.eventCount).to.equal(1);
 		expect(loggingClient.invalidEventCount).to.equal(0);
 	});
@@ -118,6 +118,69 @@ describe('LoggingClient', function() {
 		loggingClient.log(event);
 		expect(loggingClient.eventCount).to.equal(0);
 		expect(loggingClient.invalidEventCount).to.equal(1);
+	});
+
+	it('can log events in batches, using default batch config when config option batch=true', function() {
+		var loggingClient = require('..')({
+			url : 'http://localhost:8000/log',
+			batch : true,
+			logLevel : 'DEBUG'
+		});
+		var i = 0;
+		for (i = 0; i < 20; i++) {
+			var event = {
+				tags : [ 'info' ],
+				data : 'can log events in batches, using default batch config when config option batch=true : ' + i
+			};
+			loggingClient.log(event);
+		}
+
+		var event = {
+			tags : [ 'warn' ],
+			data : 'can log events in batches, using default batch config when config option batch=true : ' + i
+		};
+		loggingClient.log(event);
+		expect(loggingClient.eventCount).to.equal(21);
+		expect(loggingClient.invalidEventCount).to.equal(0);
+	});
+
+	it('can log events in batches, and batching is configurable', function(done) {
+		var loggingClient = require('..')({
+			url : 'http://localhost:8000/log',
+			batch : {
+				size : 5,
+				interval : 10
+			},
+			logLevel : 'DEBUG'
+		});
+		var i = 0;
+		for (i = 0; i < 4; i++) {
+			var event = {
+				tags : [ 'info' ],
+				data : 'can log events in batches, and batching is configurable : ' + i
+			};
+			loggingClient.log(event);
+		}
+
+		setTimeout(done, 20);
+		expect(loggingClient.eventCount).to.equal(4);
+		expect(loggingClient.invalidEventCount).to.equal(0);
+	});
+
+	it('checks that the batch config is either a boolean or object', function(done) {
+		try {
+			require('..')({
+				url : 'http://localhost:8000/log',
+				batch : 'invalid batch config',
+				logLevel : 'DEBUG'
+			});
+			done(new Error('expected config validation to fail'));
+		} catch (error) {
+			console.error(error);
+			// expected
+			done();
+		}
+
 	});
 
 });
