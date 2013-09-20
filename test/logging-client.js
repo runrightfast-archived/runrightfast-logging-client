@@ -148,7 +148,7 @@ describe('LoggingClient', function() {
 		var loggingClient = require('..')({
 			url : 'http://localhost:8000/log',
 			batch : {
-				size : 5,
+				size : 50,
 				interval : 10
 			},
 			logLevel : 'DEBUG'
@@ -162,9 +162,24 @@ describe('LoggingClient', function() {
 			loggingClient.log(event);
 		}
 
-		setTimeout(done, 20);
-		expect(loggingClient.eventCount).to.equal(4);
-		expect(loggingClient.invalidEventCount).to.equal(0);
+		setTimeout(function() {
+			console.log('waking up after first 4 events were logged');
+			expect(loggingClient.eventCount).to.equal(4);
+			expect(loggingClient.invalidEventCount).to.equal(0);
+
+			for (i = 0; i < 4; i++) {
+				var event = {
+					tags : [ 'info' ],
+					data : 'can log events in batches, and batching is configurable : ' + i
+				};
+				loggingClient.log(event);
+			}
+
+			setTimeout(done, 20);
+			expect(loggingClient.eventCount).to.equal(8);
+			expect(loggingClient.invalidEventCount).to.equal(0);
+		}, 20);
+
 	});
 
 	it('checks that the batch config is either a boolean or object', function(done) {
