@@ -86,13 +86,14 @@ describe('LoggingClient', function() {
 
 	it('log a valid event to an invalid URL', function(done) {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/logXQZ',
+			url : 'http://localhost:8000/logXYZ',
 			timeout : 10,
 			retry : {
 				initial : 1,
 				multiplier : 2,
 				max : 2
 			},
+			logLevel : 'DEBUG',
 			errorCallback : function() {
 				done();
 			}
@@ -186,7 +187,7 @@ describe('LoggingClient', function() {
 		try {
 			require('..')({
 				url : 'http://localhost:8000/log',
-				batch : 'invalid batch config',
+				batch : '',
 				logLevel : 'DEBUG'
 			});
 			done(new Error('expected config validation to fail'));
