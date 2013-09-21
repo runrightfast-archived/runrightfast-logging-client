@@ -1,6 +1,6 @@
 {
 	"name":"runrightfast-logging-client",
-	"version":"0.0.5",
+	"version":"0.0.6",
 	"description":"RunRightFast Logging Client",
 	"repository":{
 		"type":"git",
@@ -19,7 +19,7 @@
 	"dependencies":{
 		"lodash":"2.0.0",
 		"hoek":"1.0.3",
-		"runrightfast-logging-service":"git://github.com/runrightfast/runrightfast-logging-service.git#0.0.10",
+		"runrightfast-logging-service":"git://github.com/runrightfast/runrightfast-logging-service.git#0.0.11",
 		"rest":"0.9.4",
 		"log4js":"0.6.8"
 	},
@@ -33,7 +33,7 @@
 		"grunt-mocha-cov":"~0.0.7",
 		"grunt-contrib-clean":"~0.5.0",
 		"hapi":"1.11.1",
-		"runrightfast-logging-service-hapi-plugin":"git://github.com/runrightfast/runrightfast-logging-service-hapi-plugin.git#0.0.7",
+		"runrightfast-logging-service-hapi-plugin":"git://github.com/runrightfast/runrightfast-logging-service-hapi-plugin.git#0.0.8",
 		"lout":"0.5.0",		
 		"handlebars":"1.0.12",
 		"furball":"0.3.3"
