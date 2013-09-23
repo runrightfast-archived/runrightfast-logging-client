@@ -17,12 +17,12 @@
 	"author":"Alfio Zappala",
 	"license":"Apache v2",
 	"dependencies":{
-		"lodash":"2.0.0",
-		"hoek":"1.0.3",
+		"lodash":"2.0.x",
+		"hoek":"1.0.x",
 		"runrightfast-logging-service":"git://github.com/runrightfast/runrightfast-logging-service.git#0.0.11",
 		"runrightfast-commons":"git://github.com/runrightfast/runrightfast-commons.git#0.0.4",
-		"rest":"1.0.0",
-		"log4js":"0.6.8"
+		"rest":"1.0.x",
+		"log4js":"0.6.x"
 	},
 	"devDependencies":{
 		"grunt":"~0.4.1",
@@ -33,10 +33,10 @@
 		"sinon-chai":"~2.4.0",
 		"grunt-mocha-cov":"~0.0.7",
 		"grunt-contrib-clean":"~0.5.0",
-		"hapi":"1.11.1",
+		"hapi":"~1.11.1",
 		"runrightfast-logging-service-hapi-plugin":"git://github.com/runrightfast/runrightfast-logging-service-hapi-plugin.git#0.0.10",
-		"lout":"0.5.0",		
-		"handlebars":"1.0.12",
-		"furball":"0.3.3"
+		"lout":"~0.5.0",		
+		"handlebars":"~1.0.12",
+		"furball":"~0.3.3"
 	}
 }
