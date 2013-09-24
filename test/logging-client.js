@@ -31,7 +31,9 @@ function startServer(callback) {
 		plugins : {
 			'lout' : {},
 			'furball' : {},
-			'runrightfast-logging-service-hapi-plugin' : {}
+			'runrightfast-logging-service-hapi-plugin' : {
+				logRoutePath : '/api/runrightfast-logging-service/log'
+			}
 		}
 	};
 
