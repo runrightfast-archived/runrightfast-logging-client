@@ -33,7 +33,7 @@
 'use strict';
 
 var loggingClient = require('..')({
-	url : 'http://localhost:8000/log'
+	url : 'http://localhost:8000/api/runrightfast-logging-service/log'
 });
 
 var counter = 0;
@@ -44,7 +44,7 @@ function logEvent() {
 		var event = {
 			tags : [ 'info' ],
 			data : 'test-harness message # ' + counter,
-			batch:true
+			batch : false
 		};
 
 		loggingClient.log(event);
