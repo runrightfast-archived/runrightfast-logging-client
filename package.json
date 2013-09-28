@@ -37,7 +37,7 @@
 		"grunt-contrib-clean":"~0.5.0",
 		"hapi":"~1.11.1",
 		"runrightfast-logging-service-hapi-plugin":"git://github.com/runrightfast/runrightfast-logging-service-hapi-plugin.git#0.0.15",
-		"runrightfast-hapi-server":"git://github.com/runrightfast/runrightfast-hapi-server.git#0.0.8",
+		"runrightfast-hapi-server":"git://github.com/runrightfast/runrightfast-hapi-server.git#0.0.11",
 		"lout":"~0.5.0",		
 		"handlebars":"~1.0.12",
 		"furball":"~0.3.3"
