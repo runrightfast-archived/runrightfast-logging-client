@@ -32,8 +32,10 @@
 
 'use strict';
 
+var port = parseInt(require('runrightfast-commons').config.param('RRF_PORT', '8000'), 10);
+
 var loggingClient = require('..')({
-	url : 'http://localhost:8000/api/runrightfast-logging-service/log'
+	url : 'http://localhost:' + port + '/api/runrightfast-logging-service/log'
 });
 
 var counter = 0;
