@@ -32,10 +32,23 @@
 
 'use strict';
 
-var port = parseInt(require('runrightfast-commons').config.param('RRF_PORT', '8000'), 10);
+var config = require('runrightfast-commons').config;
+var port = parseInt(config.param('RRF_PORT', '8000'), 10);
 
 var loggingClient = require('..')({
-	url : 'http://localhost:' + port + '/api/runrightfast-logging-service/log'
+	url : 'http://localhost:' + port + '/api/runrightfast-logging-service/log',
+	logLevel : 'ERROR',
+	auth : {
+		hawk : {
+			credentials : {
+				id : 'd74s3nz2873n',
+				key : 'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn',
+				algorithm : 'sha256'
+			},
+			ext : '',
+			logLevel : 'WARN'
+		}
+	}
 });
 
 var counter = 0;
