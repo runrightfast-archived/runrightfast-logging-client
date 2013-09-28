@@ -73,7 +73,7 @@ describe('LoggingClient', function() {
 
 	it('log a valid event', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/log'
+			url : 'http://localhost:8000/api/runrightfast-logging-service/log'
 		});
 		var event = {
 			tags : [ 'info' ],
@@ -87,7 +87,7 @@ describe('LoggingClient', function() {
 
 	it('log a valid event with timeout of 100 msec', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/log',
+			url : 'http://localhost:8000/api/runrightfast-logging-service/log',
 			timeout : 100
 		});
 		var event = {
@@ -128,7 +128,7 @@ describe('LoggingClient', function() {
 
 	it('log an invalid event', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/log'
+			url : 'http://localhost:8000/api/runrightfast-logging-service/log'
 		});
 		var event = {
 			data : 'test : log an invalid event'
@@ -141,7 +141,7 @@ describe('LoggingClient', function() {
 
 	it('can log events in batches, using default batch config when config option batch=true', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/log',
+			url : 'http://localhost:8000/api/runrightfast-logging-service/log',
 			batch : true,
 			logLevel : 'DEBUG'
 		});
@@ -165,7 +165,7 @@ describe('LoggingClient', function() {
 
 	it('can log events in batches, and batching is configurable', function(done) {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/log',
+			url : 'http://localhost:8000/api/runrightfast-logging-service/log',
 			batch : {
 				size : 50,
 				interval : 10
@@ -204,7 +204,7 @@ describe('LoggingClient', function() {
 	it('checks that the batch config is either a boolean or object', function(done) {
 		try {
 			require('..')({
-				url : 'http://localhost:8000/log',
+				url : 'http://localhost:8000/api/runrightfast-logging-service/log',
 				batch : '',
 				logLevel : 'DEBUG'
 			});
