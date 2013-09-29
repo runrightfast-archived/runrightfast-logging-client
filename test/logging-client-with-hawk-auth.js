@@ -17,6 +17,8 @@
 'use strict';
 var expect = require('chai').expect;
 
+var Hawk = require('hawk');
+
 var credentials = {
 	d74s3nz2873n : {
 		key : 'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn',
@@ -43,7 +45,7 @@ function startServer(callback) {
 						scheme : 'hawk',
 						defaultMode : true,
 						getCredentialsFunc : getCredentials
-					}					
+					}
 				}
 			}
 		} ],
@@ -86,6 +88,7 @@ describe('LoggingClient with Hawk Auth', function() {
 			timeout : 1000
 		}, function() {
 			console.log('All servers stopped');
+			Hawk.sntp.stop();
 			done();
 		});
 	});
@@ -100,10 +103,10 @@ describe('LoggingClient with Hawk Auth', function() {
 						id : 'd74s3nz2873n',
 						key : 'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn',
 						algorithm : 'sha256'
-					},
-					ext : '',
-					logLevel : 'DEBUG'
-				}
+					}
+				},
+				logLevel : 'DEBUG',
+				sntp : true
 			}
 		});
 		var event = {

@@ -24,38 +24,41 @@
 
 'use strict';
 
-var manifest = {
-	pack : {},
-	servers : [ {
-		port : 8000,
-		options : {
-			labels : [ 'api' ]
-		}
-	} ],
-	plugins : {
-		'lout' : {},
-		'furball' : {},
-		'runrightfast-logging-service-hapi-plugin' : {
-			logRoutePath : '/api/runrightfast-logging-service/log'
+var HapiServer = require('runrightfast-hapi-server');
+
+var loggingServerOptions = {
+	manifest : require('./logging-server-manifest'),
+	logLevel : 'INFO',
+	name : 'loggingServer',
+	startCallback : function(err) {
+		if (err) {
+			console.error('loggingServer failed to start');
+			console.error(err);
 		}
 	}
 };
-
-var HapiServer = require('runrightfast-hapi-server');
-
-var options = {
-	manifest : manifest,
-	logLevel : 'INFO'
-};
-
-var hapiServer = new HapiServer(options);
+var loggingServer = new HapiServer(loggingServerOptions);
 
 function restart() {
 	setTimeout(function() {
-		hapiServer.stop();
-		hapiServer = new HapiServer(options);
+		loggingServer.stop();
+		loggingServer = new HapiServer(loggingServerOptions);
 		setTimeout(restart, 100);
 	}, 1000);
 }
 
 restart();
+
+var apiGatewayServer = new HapiServer({
+	manifest : require('./api-gateway-manifest'),
+	logLevel : 'INFO',
+	name : 'apiGatewayServer',
+	startCallback : function(err) {
+		if (err) {
+			console.error('apiGatewayServer failed to start');
+			console.error(err);
+		}
+	}
+});
+
+console.log('apiGatewayServer created');

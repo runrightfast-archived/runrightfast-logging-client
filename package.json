@@ -1,6 +1,6 @@
 {
 	"name":"runrightfast-logging-client",
-	"version":"0.0.12",
+	"version":"0.0.13",
 	"description":"RunRightFast Logging Client",
 	"repository":{
 		"type":"git",
@@ -21,7 +21,7 @@
 		"hoek":"1.0.x",
 		"runrightfast-logging-service":"git://github.com/runrightfast/runrightfast-logging-service.git#0.0.11",
 		"runrightfast-commons":"git://github.com/runrightfast/runrightfast-commons.git#0.0.10",
-		"runrightfast-rest-auth-hawk-interceptor":"git://github.com/runrightfast/runrightfast-rest-auth-hawk-interceptor.git#0.0.2",
+		"runrightfast-rest-auth-hawk-interceptor":"git://github.com/runrightfast/runrightfast-rest-auth-hawk-interceptor.git#0.0.3",
 		"rest":"1.0.x",
 		"log4js":"0.6.x",
 		"hawk":"1.1.x",
@@ -39,6 +39,7 @@
 		"hapi":"~1.11.1",
 		"runrightfast-logging-service-hapi-plugin":"git://github.com/runrightfast/runrightfast-logging-service-hapi-plugin.git#0.0.15",
 		"runrightfast-hapi-server":"git://github.com/runrightfast/runrightfast-hapi-server.git#0.0.11",
+		"runrightfast-logging-server-proxy-hapi-plugin":"git://github.com/runrightfast/runrightfast-logging-server-proxy-hapi-plugin#0.0.3",
 		"lout":"~0.5.0",		
 		"handlebars":"~1.0.12",
 		"furball":"~0.3.3"

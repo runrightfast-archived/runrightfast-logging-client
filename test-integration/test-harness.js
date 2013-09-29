@@ -23,31 +23,35 @@
  * <pre>
  * 1. start this script with node from this project's base dir :  node ./test-integration/test-harness.js 
  * 2. start up the runrightfast-logging-server (which logs events to the console) in a separate window
- * 3. restart the runrightfast-logging-server while the test-harness is running and watch the server console window - no event messages should be dropped
- * 		- the client console logs the counter for the logged events, which is part of the event data 
- * 
+ * 3. start up the runrightfast-api-gateway-server - which is configured to route to the runrightfast-logging-server and is enforcing Hawk auth
+ * 4. restart the runrightfast-logging-server while the test-harness is running and watch the server console window - no event messages should be dropped
+ * 		- the client console logs the counter for the logged events, which is part of the event data
  * </pre>
+ * 
+ * *** ./start-server.js peforms steps 2-4 listed above - start it with node in
+ * a separate window to observe server side logging
  * 
  */
 
 'use strict';
 
 var config = require('runrightfast-commons').config;
-var port = parseInt(config.param('RRF_PORT', '8000'), 10);
+
+// runrightfast-api-gateway-server should be listening on the same port
+var port = parseInt(config.param('RRF_PORT', '8080'), 10);
 
 var loggingClient = require('..')({
 	url : 'http://localhost:' + port + '/api/runrightfast-logging-service/log',
-	logLevel : 'ERROR',
+	logLevel : 'WARN',
 	auth : {
 		hawk : {
 			credentials : {
 				id : 'd74s3nz2873n',
 				key : 'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn',
 				algorithm : 'sha256'
-			},
-			ext : '',
-			logLevel : 'WARN'
-		}
+			}
+		},
+		logLevel : 'WARN'
 	}
 });
 
