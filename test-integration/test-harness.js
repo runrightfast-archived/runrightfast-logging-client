@@ -46,9 +46,9 @@ var loggingClient = require('..')({
 	auth : {
 		hawk : {
 			credentials : {
-				id : 'd74s3nz2873n',
-				key : 'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn',
-				algorithm : 'sha256'
+				"id" : "026700eff9054a30b1d732862e852e37",
+				"key" : "685f3b2044164fc0a7cfa9169205908e",
+				"algorithm" : "sha256"
 			}
 		},
 		logLevel : 'WARN'
