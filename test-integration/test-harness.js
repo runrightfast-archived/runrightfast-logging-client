@@ -15,8 +15,7 @@
  */
 
 /**
- * The purpose of this test harness is to verify that the REST client is robust
- * enough to recover and retry HTTP requests when the server is not available.
+ * The purpose of this test harness is to verify that the REST client is robust enough to recover and retry HTTP requests when the server is not available.
  * 
  * To test this perform the following steps:
  * 
@@ -28,8 +27,7 @@
  * 		- the client console logs the counter for the logged events, which is part of the event data
  * </pre>
  * 
- * *** ./start-server.js peforms steps 2-4 listed above - start it with node in
- * a separate window to observe server side logging
+ * *** ./start-server.js peforms steps 2-4 listed above - start it with node in a separate window to observe server side logging
  * 
  */
 
@@ -41,7 +39,7 @@ var config = require('runrightfast-commons').config;
 var port = parseInt(config.param('RRF_PORT', '8080'), 10);
 
 var loggingClient = require('..')({
-	url : 'http://localhost:' + port + '/api/runrightfast-logging-service/log',
+	baseUrl : 'http://localhost:' + port,
 	logLevel : 'WARN',
 	auth : {
 		hawk : {

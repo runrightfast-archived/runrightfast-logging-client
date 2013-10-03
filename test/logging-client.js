@@ -1,17 +1,13 @@
 /**
  * Copyright [2013] [runrightfast.co]
  * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the
+ * License at
  * 
  * http://www.apache.org/licenses/LICENSE-2.0
  * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
 'use strict';
@@ -73,7 +69,7 @@ describe('LoggingClient', function() {
 
 	it('log a valid event', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/api/runrightfast-logging-service/log'
+			baseUrl : 'http://localhost:8000'
 		});
 		var event = {
 			tags : [ 'info' ],
@@ -87,7 +83,7 @@ describe('LoggingClient', function() {
 
 	it('log a valid event with timeout of 100 msec', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/api/runrightfast-logging-service/log',
+			baseUrl : 'http://localhost:8000',
 			timeout : 100
 		});
 		var event = {
@@ -104,7 +100,8 @@ describe('LoggingClient', function() {
 
 	it('log a valid event to an invalid URL', function(done) {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/logXYZ',
+			baseUrl : 'http://localhost:8000',
+			path : 'INVALID_PATH',
 			timeout : 10,
 			retry : {
 				initial : 1,
@@ -128,7 +125,7 @@ describe('LoggingClient', function() {
 
 	it('log an invalid event', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/api/runrightfast-logging-service/log'
+			baseUrl : 'http://localhost:8000'
 		});
 		var event = {
 			data : 'test : log an invalid event'
@@ -141,7 +138,7 @@ describe('LoggingClient', function() {
 
 	it('can log events in batches, using default batch config when config option batch=true', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/api/runrightfast-logging-service/log',
+			baseUrl : 'http://localhost:8000',
 			batch : true,
 			logLevel : 'DEBUG'
 		});
@@ -165,7 +162,7 @@ describe('LoggingClient', function() {
 
 	it('can log events in batches, and batching is configurable', function(done) {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/api/runrightfast-logging-service/log',
+			baseUrl : 'http://localhost:8000',
 			batch : {
 				size : 50,
 				interval : 10
@@ -204,7 +201,7 @@ describe('LoggingClient', function() {
 	it('checks that the batch config is either a boolean or object', function(done) {
 		try {
 			require('..')({
-				url : 'http://localhost:8000/api/runrightfast-logging-service/log',
+				baseUrl : 'http://localhost:8000',
 				batch : '',
 				logLevel : 'DEBUG'
 			});

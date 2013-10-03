@@ -95,7 +95,7 @@ describe('LoggingClient with Hawk Auth', function() {
 
 	it('log a valid event using Hawk Auth', function() {
 		var loggingClient = require('..')({
-			url : 'http://localhost:8000/api/runrightfast-logging-service/log',
+			baseUrl : 'http://localhost:8000',
 			logLevel : 'DEBUG',
 			auth : {
 				hawk : {
