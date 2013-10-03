@@ -1,6 +1,6 @@
 {
 	"name":"runrightfast-logging-client",
-	"version":"0.0.14",
+	"version":"0.0.15",
 	"description":"RunRightFast Logging Client",
 	"repository":{
 		"type":"git",
