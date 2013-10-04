@@ -36,7 +36,7 @@
 var config = require('runrightfast-commons').config;
 
 // runrightfast-api-gateway-server should be listening on the same port
-var port = parseInt(config.param('RRF_PORT', '8080'), 10);
+var port = parseInt(config.param('RRF_PORT', '9000'), 10);
 
 var loggingClient = require('..')({
 	baseUrl : 'http://localhost:' + port,
