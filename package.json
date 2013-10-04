@@ -12,7 +12,8 @@
 			"pattern":[
 				"lib/logging-client.js"
 			]
-		}		
+		},
+		"start" : "node ./test-integration/test-harness.js > /dev/null &2>&1 &"		
 	},
 	"author":"Alfio Zappala",
 	"license":"Apache v2",
