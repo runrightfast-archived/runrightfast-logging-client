@@ -13,7 +13,8 @@
 				"lib/logging-client.js"
 			]
 		},
-		"start" : "node ./test-integration/test-harness.js > /dev/null &2>&1 &"		
+		"start" : "node ./test-integration/test-harness.js > /dev/null &2>&1 &",
+		"stop" : "ps -efwww | grep node | grep test-harness | awk '{print $2;}' |  while read line; do kill ${line}; done;"
 	},
 	"author":"Alfio Zappala",
 	"license":"Apache v2",
