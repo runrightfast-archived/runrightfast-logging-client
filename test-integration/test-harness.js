@@ -15,7 +15,8 @@
  */
 
 /**
- * The purpose of this test harness is to verify that the REST client is robust enough to recover and retry HTTP requests when the server is not available.
+ * The purpose of this test harness is to verify that the REST client is robust
+ * enough to recover and retry HTTP requests when the server is not available.
  * 
  * To test this perform the following steps:
  * 
@@ -27,7 +28,8 @@
  * 		- the client console logs the counter for the logged events, which is part of the event data
  * </pre>
  * 
- * *** ./start-server.js peforms steps 2-4 listed above - start it with node in a separate window to observe server side logging
+ * *** ./start-server.js peforms steps 2-4 listed above - start it with node in
+ * a separate window to observe server side logging
  * 
  */
 
@@ -44,8 +46,8 @@ var loggingClient = require('..')({
 	auth : {
 		hawk : {
 			credentials : {
-				"id" : "0d110d3bd15d4795b7e14cb0fa800967",
-				"key" : "cb4251fe46a34731af3202ee8bcd5a9d",
+				"id" : "16e6be17452f4112b30701d5af60da4e",
+				"key" : "b6dc223598764cc4bd60e87af7ce3ca0",
 				"algorithm" : "sha256"
 			}
 		},
