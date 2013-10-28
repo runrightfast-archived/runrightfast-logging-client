@@ -62,8 +62,7 @@ function logEvent() {
 		counter++;
 		var event = {
 			tags : [ 'info' ],
-			data : 'test-harness message # ' + counter,
-			batch : false
+			data : 'test-harness message # ' + counter
 		};
 
 		loggingClient.log(event);
